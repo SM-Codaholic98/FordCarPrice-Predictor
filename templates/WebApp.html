@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <meta charset = "UTF-8">
+    <meta name = 'viewport' content = 'width=device-width, initial - scale = 1.0'>
+    <title>Ford Car Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <body>
+        <div class="container">
+            <h1>Ford Car Price Prediction</h1>
+            <form action="/predict" method="post">
+                <label for="model">Model:</label>
+                <select id='model' name='model' required>
+                    <option value='B-MAX'>B-MAX</option>
+                    <option value='C-MAX'>C-MAX</option>
+                    <option value='EcoSport'>EcoSport</option>
+                    <option value='Edge'>Edge</option>
+                    <option value='Escort'>Escort</option>
+                    <option value='Fiesta'>Fiesta</option>
+                    <option value='Focus'>Focus</option>
+                    <option value='Fusion'>Fusion</option>
+                    <option value='Galaxy'>Galaxy</option>
+                    <option value='Grand C-MAX'>Grand C-MAX</option>
+                    <option value='Grand Tourneo Connect'>Grand Tourneo Connect</option>
+                    <option value='KA'>KA</option>
+                    <option value='Ka+'>Ka+</option>
+                    <option value='Kuga'>Kuga</option>
+                    <option value='Mondeo'>Mondeo</option>
+                    <option value='Mustang'>Mustang</option>
+                    <option value='Puma'>Puma</option>
+                    <option value='Ranger'>Ranger</option>
+                    <option value='S-MAX'>S-MAX</option>
+                    <option value='Streetka'>Streetka</option>
+                    <option value='Tourneo Connect'>Tourneo Connect</option>
+                    <option value='Tourneo Custom'>Tourneo Custom</option>
+                    <option value='Transit Tourneo'>Transit Tourneo</option>
+                </select><br>
+
+                <label for='transmission'>Transmission:</label>
+                <select id='transmission' name='transmission' required>
+                    <option value='Automatic'>Automatic</option>
+                    <option value='Manual'>Manual</option>
+                    <option value='Semi-Auto'>Semi-Auto</option>
+                </select><br>
+
+                <label for='fuelType'>Fuel Type:</label>
+                <select id='fuelType' name='fuelType' required>
+                    <option value='Diesel'>Diesel</option>
+                    <option value='Electric'>Electric</option>
+                    <option value='Hybrid'>Hybrid</option>
+                    <option value='Petrol'>Petrol</option>
+                </select><br>
+
+                <label for="year">Production Year:</label>
+                <input type="number" id="year" name="year" placeholder="Enter the Year" required><br>
+
+                <label for="mileage">Mileage:</label>
+                <input type="number" id="mileage" name="mileage" step="0.001" placeholder="Enter the Mileage (number of miles traveled)" required><br>
+
+                <label for="tax">Annual Tax:</label>
+                <input type="number" id="tax" name="tax" step="0.001" placeholder="Enter the Annual Tax (in $)" required><br>
+
+                <label for="mpg">Miles Per Gallon:</label>
+                <input type="number" id="mpg" name="mpg" step="0.001" placeholder="Enter the Miles Per Gallon (in miles)" required><br>
+
+                <label for="engineSize">Engine Size:</label>
+                <input type="number" id="engineSize" name="engineSize" step="0.001" placeholder="Enter the Engine Size (in litre)" required><br>
+
+                <input type="submit" value="Predict Car Price">
+            </form>
+            {% if prediction_text %}
+            <div class="output">
+                <h2>{{ prediction_text }}</h2>
+            </div>
+            {% endif %}
+        </div>
+    </body>
+</html>
