@@ -5,7 +5,7 @@ import pickle, numpy as np
 
 app = Flask(__name__)
 
-with open('D:\\EDA\\CarPrice_Predictor v1.0\\FordCarPrice_Predictor.pkl', 'rb') as file:
+with open('FordCarPrice_Predictor.pkl', 'rb') as file:
     data = pickle.load(file)
     Model = data['Model']
     transformer = data['Transformer']
